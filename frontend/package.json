@@ -5,7 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint \"src/**/*.+(ts|tsx)\" --fix",
+    "format": "prettier --log-level warn --write \"src/**/*.+(ts|tsx)\""
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
