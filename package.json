@@ -1,0 +1,21 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "Yet another note taking app",
+  "author": "Arkadiusz Nurzyński",
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "Node.js",
+    "Nest.js",
+    "React.js",
+    "Next.js"
+  ],
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "devDependencies": {
+    "turbo": "^1.10.16"
+  }
+}
