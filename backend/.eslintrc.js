@@ -16,7 +16,7 @@ module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-type-checked',
-    'plugin:prettier/recommended'
+    'prettier'
   ],
   ignorePatterns: ['.eslintrc.js'],
   rules: {},
