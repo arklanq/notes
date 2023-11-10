@@ -1,5 +1,5 @@
 'use server';
-import styles from './Create.module.scss';
+import styles from './CreatePage.module.scss';
 import { Container } from "../../atoms/Container/Container";
 import CreateNoteForm from "../../organisms/CreateNoteForm/CreateNoteForm";
 

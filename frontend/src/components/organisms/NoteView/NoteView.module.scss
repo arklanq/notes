@@ -1,0 +1,47 @@
+@use 'breakpoints' as *;
+
+.view {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 24px;
+
+  @include mediaUp(MD) {
+    flex-flow: row nowrap;
+    gap: 48px;
+    min-height: 50vh;
+  }
+}
+
+%card {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.noteCard {
+  @extend %card;
+  gap: 16px;
+}
+
+.detailsCard {
+  @extend %card;
+  gap: 8px;
+  padding: 12px 24px;
+
+  @include mediaUp(MD) {
+    padding: 24px;
+    width: 400px;
+    align-self: flex-start;
+  }
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 12px;
+  margin-top: 12px;
+
+  & > button {
+    width: 100px;
+  }
+}

@@ -1,16 +1,17 @@
-import { CreateNoteDTO, Note, noteSchema } from "@/models/Note";
+import { UpdateNoteDTO, Note, noteSchema } from "@/models/Note";
 import {baseUrl} from './server';
 import { ResourceFetchException } from "../exceptions/ResourceFetchException";
 
 /**
  * @throws {@link ResourceFetchException} on any unknown error
+ * @throws {@link NoteNotFoundException} when note with specified noteId wasn't found
  */
-export async function createNote(dto: CreateNoteDTO): Promise<Note> {
+export async function editNote(noteId: number, dto: UpdateNoteDTO): Promise<Note> {
   const response: Response = await fetch(
-    new URL('/notes', baseUrl),
+    new URL(`/notes/${noteId}`, baseUrl),
     {
       cache: 'no-store',
-      method: 'POST',
+      method: 'PUT',
       body: JSON.stringify(dto),
       headers: {
         'Accept': 'application/json',

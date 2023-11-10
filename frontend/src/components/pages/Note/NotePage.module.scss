@@ -1,0 +1,12 @@
+@use 'breakpoints' as *;
+
+.section {
+  $hPadding: 16;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0 16px;
+
+  @include mediaUp(SM) {
+    padding: 0 32px;
+  }
+}

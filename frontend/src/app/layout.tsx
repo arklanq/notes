@@ -3,7 +3,7 @@ import type {Metadata} from 'next';
 import {PropsWithChildren} from 'react';
 import {NextFont} from 'next/dist/compiled/@next/font';
 import {Roboto} from 'next/font/google';
-import PageShell from '../components/organisms/PageShell/PageShell';
+import PageShell from '@/components/organisms/PageShell/PageShell';
 
 export const metadata: Metadata = {
   title: 'Notes',

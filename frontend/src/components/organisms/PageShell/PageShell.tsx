@@ -3,8 +3,9 @@ import {PropsWithChildren} from 'react';
 import {Text, Subtitle, Title} from '@tremor/react';
 import styles from './PageShell.module.scss';
 import {Container} from '../../atoms/Container/Container';
-import NewNoteButton from '../../atoms/NewNoteButton/NewNoteButton';
+import NewNoteButton from './NewNoteButton';
 import ClientEffects from "./ClientSideConfiguration";
+import Link from "next/link";
 
 async function PageShell(props: PropsWithChildren) {
   const {children} = props;
@@ -14,10 +15,10 @@ async function PageShell(props: PropsWithChildren) {
       <ClientEffects />
 
       <Container as={'header'} className={styles.header}>
-        <div className={styles.body}>
+        <Link href={'/'} className={styles.body}>
           <Title>Notes.app</Title>
           <Text>Yet another note taking app.</Text>
-        </div>
+        </Link>
         <div className={styles.actions}>
           <NewNoteButton />
         </div>

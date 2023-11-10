@@ -1,1 +1,1 @@
-export {default} from '../../components/pages/Create/CreatePage';
+export {default} from '@/components/pages/Create/CreatePage';
