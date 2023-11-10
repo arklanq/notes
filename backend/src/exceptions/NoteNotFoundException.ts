@@ -1,4 +1,4 @@
-import { Exception } from "enhanced-exception";
+import {Exception} from 'enhanced-exception';
 
 export class NoteNotFoundException extends Exception {
   constructor(noteId: number) {

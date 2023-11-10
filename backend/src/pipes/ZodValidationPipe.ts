@@ -1,4 +1,4 @@
-import { PipeTransform, ArgumentMetadata, BadRequestException, HttpStatus } from "@nestjs/common";
+import {PipeTransform, ArgumentMetadata, BadRequestException, HttpStatus} from '@nestjs/common';
 import {ZodObject, ZodError, ZodIssue} from 'zod';
 
 export class ZodValidationPipe implements PipeTransform {
@@ -15,7 +15,7 @@ export class ZodValidationPipe implements PipeTransform {
         issues:
           e instanceof ZodError
             ? e.issues.map((issue: ZodIssue): string => issue.message)
-            : ['Unknown validation issue.'],
+            : ['Unknown validation issue.']
       };
 
       throw new BadRequestException(errorCondition);
