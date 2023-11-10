@@ -5,7 +5,7 @@ import styles from './EditNoteForm.module.scss';
 import {useForm} from './useForm';
 import Link from 'next/link';
 import {FormStatus} from './FormStatus';
-import { Note } from "@/models/Note";
+import {Note} from '@/models/Note';
 
 export interface EditNoteFormProps {
   note: Note;
@@ -60,7 +60,7 @@ function EditNoteForm(props: EditNoteFormProps) {
             color={status === FormStatus.SUCCESS ? 'green' : 'blue'}>
             Submit
           </Button>
-          <Link href={'/'} style={{height: 20}}>
+          <Link href={'/'} style={{height: 20}} prefetch={false}>
             <Button variant={'light'}>Back to notes</Button>
           </Link>
         </div>

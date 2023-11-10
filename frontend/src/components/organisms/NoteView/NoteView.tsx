@@ -1,12 +1,12 @@
 'use server';
 
-import { Note } from "@/models/Note";
-import { Card, Title, Text } from "@tremor/react";
+import {Note} from '@/models/Note';
+import {Card, Title, Text} from '@tremor/react';
 import styles from './NoteView.module.scss';
-import React, { useMemo } from "react";
-import { format } from "date-fns";
-import DeleteNoteButton from "./DeleteNoteButton";
-import EditNoteButton from "./EditNoteButton";
+import React, {useMemo} from 'react';
+import {format} from 'date-fns';
+import DeleteNoteButton from './DeleteNoteButton';
+import EditNoteButton from './EditNoteButton';
 
 export interface NoteViewProps {
   note: Note;

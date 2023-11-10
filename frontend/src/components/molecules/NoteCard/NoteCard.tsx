@@ -3,7 +3,7 @@ import styles from './NoteCard.module.scss';
 import {Title, Card, Text} from '@tremor/react';
 import clsx from 'clsx';
 import {format} from 'date-fns';
-import Link from "next/link";
+import Link from 'next/link';
 
 export interface NoteCardProps {
   id: number;
@@ -19,8 +19,11 @@ function NoteCard(props: NoteCardProps) {
   }, [lastUpdateDate]);
 
   return (
-    <Link href={`/${id.toString()}`}>
-      <Card decoration='top' decorationColor='indigo' className={clsx('card transition-shadow hover:shadow-lg', styles.root)}>
+    <Link href={`/${id.toString()}`} prefetch={false}>
+      <Card
+        decoration='top'
+        decorationColor='indigo'
+        className={clsx('card transition-shadow hover:shadow-lg', styles.root)}>
         <div className={clsx('head', styles.head)}>
           <Text>Last update {formattedLastUpdateDate}</Text>
           <Title>{title}</Title>

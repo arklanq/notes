@@ -1,4 +1,4 @@
-import { z, ZodType } from "zod";
+import {z, ZodType} from 'zod';
 
 export interface Note {
   id: number;
@@ -14,7 +14,7 @@ export const noteSchema: ZodType<Note> = z
     title: z.string().min(1).max(255),
     content: z.string().min(1).max(65535),
     createDate: z.coerce.date(),
-    lastUpdateDate: z.coerce.date(),
+    lastUpdateDate: z.coerce.date()
   })
   .required();
 

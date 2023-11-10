@@ -54,7 +54,7 @@ function CreateNoteForm() {
             color={status === FormStatus.SUCCESS ? 'green' : 'blue'}>
             Submit
           </Button>
-          <Link href={'/'} style={{height: 20}}>
+          <Link href={'/'} style={{height: 20}} prefetch={false}>
             <Button variant={'light'}>Back to notes</Button>
           </Link>
         </div>

@@ -6,7 +6,7 @@ import {memo} from 'react';
 
 function NewNoteButton() {
   return (
-    <Link href={'/create'}>
+    <Link href={'/create'} prefetch={false}>
       <Icon icon={PencilIcon} variant={'light'} size='md' />
     </Link>
   );

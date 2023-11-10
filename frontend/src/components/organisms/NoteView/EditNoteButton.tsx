@@ -12,7 +12,7 @@ async function EditNoteButton(props: DeleteNoteButtonProps) {
   const {noteId} = props;
 
   return (
-    <Link href={`/edit/${noteId}`}>
+    <Link href={`/edit/${noteId}`} prefetch={false}>
       <Button variant={'secondary'} icon={PencilIcon} iconPosition={'left'} color={'blue'} size={'xs'}>
         Edit
       </Button>

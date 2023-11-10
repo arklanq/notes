@@ -1,23 +1,20 @@
-import { Note, noteSchema } from "@/models/Note";
-import { baseUrl } from "./server";
-import { z } from "zod";
-import { ResourceFetchException } from "../exceptions/ResourceFetchException";
+import {Note, noteSchema} from '@/models/Note';
+import {baseUrl} from './server';
+import {z} from 'zod';
+import {ResourceFetchException} from '../exceptions/ResourceFetchException';
 
 /**
  * @throws {@link ResourceFetchException} on any unknown error
  */
 export async function getAllNotes(): Promise<Note[]> {
-  const response: Response = await fetch(
-    new URL('/notes', baseUrl),
-    {
-      cache: 'no-store',
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
+  const response: Response = await fetch(new URL('/notes', baseUrl), {
+    cache: 'no-store',
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
     }
-  );
+  });
 
   if (!response.ok) throw new ResourceFetchException(response);
 

@@ -1,7 +1,7 @@
-import { Note, noteSchema } from "@/models/Note";
-import { baseUrl } from "./server";
-import { ResourceFetchException } from "../exceptions/ResourceFetchException";
-import { NoteNotFoundException } from "../exceptions/NoteNotFoundException";
+import {Note, noteSchema} from '@/models/Note';
+import {baseUrl} from './server';
+import {ResourceFetchException} from '../exceptions/ResourceFetchException';
+import {NoteNotFoundException} from '../exceptions/NoteNotFoundException';
 
 /**
  * @throws {@link ResourceFetchException} on any unknown error

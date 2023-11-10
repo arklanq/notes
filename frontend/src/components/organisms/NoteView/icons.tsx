@@ -1,2 +1,2 @@
 'use client';
-export {default as PencilIcon} from '@heroicons/react/24/solid/PencilIcon'
+export {default as PencilIcon} from '@heroicons/react/24/solid/PencilIcon';

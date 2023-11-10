@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/require-await */
-import { Injectable } from "@nestjs/common";
-import { Note, CreateNoteDTO, UpdateNoteDTO } from "./models/Note";
-import { NoteNotFoundException } from "./exceptions/NoteNotFoundException";
+import {Injectable} from '@nestjs/common';
+import {Note, CreateNoteDTO, UpdateNoteDTO} from './models/Note';
+import {NoteNotFoundException} from './exceptions/NoteNotFoundException';
 
 @Injectable()
 export class DatabaseService {
