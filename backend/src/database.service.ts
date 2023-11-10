@@ -1,6 +1,7 @@
-import {Injectable} from '@nestjs/common';
-import {Note, CreateNoteDTO, UpdateNoteDTO} from './models/Note';
-import {NoteNotFoundException} from './exceptions/NoteNotFoundException';
+/* eslint-disable @typescript-eslint/require-await */
+import { Injectable } from "@nestjs/common";
+import { Note, CreateNoteDTO, UpdateNoteDTO } from "./models/Note";
+import { NoteNotFoundException } from "./exceptions/NoteNotFoundException";
 
 @Injectable()
 export class DatabaseService {
@@ -38,7 +39,7 @@ export class DatabaseService {
 
     if (existingNote === null) throw new NoteNotFoundException(noteId);
 
-    const updatedNote: Note = Object.assign(existingNote, noteDTO);
+    const updatedNote: Note = Object.assign(existingNote, noteDTO, {lastUpdateDate: new Date()});
 
     this.kv.set(noteId, updatedNote);
 

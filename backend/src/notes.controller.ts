@@ -1,6 +1,6 @@
-import {Controller, Get, Param, ParseIntPipe, NotFoundException, Post, Body, UsePipes, Delete} from '@nestjs/common';
+import {Controller, Get, Param, ParseIntPipe, NotFoundException, Post, Body, Delete, Put} from '@nestjs/common';
 import {DatabaseService} from './database.service';
-import {Note, CreateNoteDTO, createNoteSchema} from './models/Note';
+import {Note, CreateNoteDTO, createNoteSchema, updateNoteSchema, UpdateNoteDTO} from './models/Note';
 import {ZodValidationPipe} from './pipes/ZodValidationPipe';
 import {NoteNotFoundException} from './exceptions/NoteNotFoundException';
 
@@ -25,9 +25,16 @@ export class NotesController {
   }
 
   @Post()
-  @UsePipes(new ZodValidationPipe(createNoteSchema))
-  public async createNote(@Body() dto: CreateNoteDTO): Promise<Note> {
+  public async createNote(@Body(new ZodValidationPipe(createNoteSchema)) dto: CreateNoteDTO): Promise<Note> {
     return await this.databaseService.insertNote(dto);
+  }
+
+  @Put(':id')
+  public async updateNote(
+    @Param('id', ParseIntPipe) noteId: number,
+    @Body(new ZodValidationPipe(updateNoteSchema)) dto: UpdateNoteDTO
+  ): Promise<Note> {
+    return await this.databaseService.updateNote(noteId, dto);
   }
 
   @Delete(':id')

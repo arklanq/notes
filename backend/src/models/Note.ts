@@ -10,11 +10,11 @@ export interface Note {
 
 export type CreateNoteDTO = Omit<Note, 'id' | 'createDate' | 'lastUpdateDate'>;
 
-export const createNoteSchema = z
-  .object({
-    title: z.string().min(1).max(255), // Optimal length for SQL "VARCHAR" column
-    content: z.string().min(1).max(65535) // Optimal length for SQL "TEXT" column
-  })
-  .required();
+export const createNoteSchema = z.object({
+  title: z.string().min(1).max(255), // Optimal length for SQL "VARCHAR" column
+  content: z.string().min(1).max(65535) // Optimal length for SQL "TEXT" column
+});
 
 export type UpdateNoteDTO = CreateNoteDTO;
+
+export const updateNoteSchema = createNoteSchema;
