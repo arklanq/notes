@@ -1,0 +1,40 @@
+@use 'breakpoints' as *;
+
+.section {
+  $hPadding: 16;
+  $spacing: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0 #{$hPadding}px;
+  gap: #{$spacing}px;
+
+  :global(.card) {
+    width: 100%;
+  }
+
+  @include mediaUp(SM) {
+    $padding: 32;
+    $spacing: 32;
+    padding: 0 #{$padding}px;
+    gap: #{$spacing}px;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+
+    :global(.card) {
+      // 336px -> 340px
+      width: #{(breakpointWidth(SM) - 2 * $padding - $spacing) / 2}px;
+    }
+  }
+
+  @include mediaUp(MD) {
+    :global(.card) {
+      width: #{(breakpointWidth(MD) - 2 * $hPadding - 3 * $spacing) / 4}px;
+    }
+  }
+
+  @include mediaUp(LG) {
+    :global(.card) {
+      width: #{(breakpointWidth(LG) - 2 * $hPadding - 5 * $spacing) / 6}px;
+    }
+  }
+}

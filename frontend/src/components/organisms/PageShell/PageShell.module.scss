@@ -1,0 +1,56 @@
+@use 'breakpoints' as *;
+
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 32px;
+
+  @include mediaUp(MD) {
+    margin-top: 32px;
+    margin-bottom: 40px;
+  }
+
+  .body {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .actions {
+    $iconSize: 36px;
+    width: $iconSize;
+    height: $iconSize;
+
+    & > span {
+      cursor: pointer;
+      transition-property: background-color;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
+
+      &:hover {
+        background-color: lighten(rgb(191 219 254), 2.5%);
+      }
+    }
+  }
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.footer {
+  background-color: #374151;
+  height: 144px;
+  width: 100%;
+  margin-top: 64px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}

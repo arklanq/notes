@@ -1,0 +1,35 @@
+@use 'breakpoints' as *;
+@use 'sass:selector';
+
+.container {
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+
+  &.container--max-sm, &.container--fixed.container--max-sm, &.container--fixed.container--max-md, &.container--fixed.container--max-lg, &.container--fixed:not([class*=--max]) {
+    @include mediaUp(SM) {
+      padding-left: 32px;
+      padding-right: 32px;
+      max-width: #{breakpointWidth(SM)}px;
+    }
+  }
+
+  &.container--max-md, &.container--fixed.container--max-md, &.container--fixed.container--max-lg, &.container--fixed:not([class*=--max]) {
+    @include mediaUp(MD) {
+      max-width: #{breakpointWidth(MD)}px;
+    }
+  }
+
+  &.container--max-lg, &.container--fixed.container--max-lg, &.container--fixed:not([class*=--max]) {
+    @include mediaUp(LG) {
+      max-width: #{breakpointWidth(LG)}px;
+    }
+  }
+}
+
+.fixed {}
+.container--max-sm {}
+.container--max-md {}
+.container--max-lg {}
