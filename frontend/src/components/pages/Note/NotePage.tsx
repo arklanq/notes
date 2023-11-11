@@ -5,12 +5,9 @@ import {Note} from '@/models/Note';
 import {getNote} from '../../../lib/getNote';
 import {notFound} from 'next/navigation';
 import {NoteNotFoundException} from '../../../exceptions/NoteNotFoundException';
-import {unstable_noStore as noStore} from 'next/cache';
 import NoteView from '../../organisms/NoteView/NoteView';
 
 async function NotePage(props: {params: {id: string}}) {
-  noStore();
-
   const {params} = props;
   const id: number = parseInt(params.id);
   if (isNaN(id)) return void notFound(); // never

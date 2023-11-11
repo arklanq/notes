@@ -3,13 +3,11 @@ import {formValuesSchema, FormValues} from './FormValues';
 import {FormikHelpers} from 'formik/dist/types';
 import {FormStatus} from './FormStatus';
 import {validateFormWithZod} from '@/utils/validateFormWithZod';
-import {useRouter} from 'next/navigation';
 import {Note} from '@/models/Note';
-import {editNote} from '@/lib/editNote';
+import {FormSubmitActionResponse} from '../../pages/Edit/FormSubmitActionResponse';
+import {submitFormAction} from '../../pages/Edit/submitFormAction';
 
 export function useForm(note: Note) {
-  const router = useRouter();
-
   return useFormik<FormValues>({
     initialStatus: FormStatus.IDLE,
     initialValues: {
@@ -22,8 +20,14 @@ export function useForm(note: Note) {
 
       try {
         // throw new Error('Test'); <-- lol try it
-        const createdNote: Note = await editNote(note.id, values);
-        router.push(`/${createdNote.id}`);
+
+        const response: FormSubmitActionResponse = await submitFormAction(note.id, values);
+
+        // If response is undefined it means that server action run succesfully and we are awaiting redirection
+        if (response === undefined) return;
+
+        // Otherwise we have to check server action response to detect possible errors
+        if (response.state === 'error') throw new Error('Server-side form submission error.');
       } catch (e: unknown) {
         formikHelpers.setStatus(FormStatus.ERROR);
         console.error(e);
