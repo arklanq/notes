@@ -5,6 +5,10 @@
   "author": "Arkadiusz Nurzyński",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "check-updates": "ncu",
+    "force-updates": "ncu -u"
+  },
   "keywords": [
     "Node.js",
     "Nest.js",
