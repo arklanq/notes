@@ -6,8 +6,9 @@ import {getNote} from '../../../lib/getNote';
 import {notFound} from 'next/navigation';
 import {NoteNotFoundException} from '../../../exceptions/NoteNotFoundException';
 import NoteView from '../../organisms/NoteView/NoteView';
+import { PageProps } from 'next';
 
-async function NotePage(props: {params: {id: string}}) {
+async function NotePage(props: PageProps<{id: string}>) {
   const {params} = props;
   const id: number = parseInt(params.id);
   if (isNaN(id)) return void notFound(); // never

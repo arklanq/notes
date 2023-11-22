@@ -6,6 +6,7 @@ import {format} from 'date-fns';
 import Link from 'next/link';
 
 export interface NoteCardProps {
+  testID?: string;
   id: number;
   title: string;
   content: string;
@@ -13,13 +14,13 @@ export interface NoteCardProps {
 }
 
 function NoteCard(props: NoteCardProps) {
-  const {id, title, content, lastUpdateDate} = props;
+  const {testID, id, title, content, lastUpdateDate} = props;
   const formattedLastUpdateDate: string = useMemo(() => {
     return format(lastUpdateDate, 'dd MMM | hh:mm');
   }, [lastUpdateDate]);
 
   return (
-    <Link href={`/${id.toString()}`} prefetch={false}>
+    <Link href={`/${id.toString()}`} prefetch={false} data-testid={testID}>
       <Card
         decoration='top'
         decorationColor='indigo'

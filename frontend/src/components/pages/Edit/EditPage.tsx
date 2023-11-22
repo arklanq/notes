@@ -6,8 +6,9 @@ import {notFound} from 'next/navigation';
 import {Note} from '@/models/Note';
 import {getNote} from '@/lib/getNote';
 import {NoteNotFoundException} from '@/exceptions/NoteNotFoundException';
+import { PageProps } from 'next';
 
-async function EditPage(props: {params: {id: string}}) {
+async function EditPage(props: PageProps<{id: string}>) {
   const {params} = props;
   const id: number = parseInt(params.id);
   if (isNaN(id)) return void notFound(); // never
