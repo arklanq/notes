@@ -11,11 +11,13 @@
     "start:prod": "node dist/main",
     "lint": "eslint \"+(src|test)/**/*.ts\" --fix",
     "format": "prettier --log-level warn --write \"+(src|test)/**/*.ts\"",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:src": "jest --roots \"<rootDir>/src\"",
+    "test:ci": "jest --roots \"<rootDir>/src\" --ci",
+    "test:src:watch": "jest --roots \"<rootDir>/src\" --watch",
+    "test:src:cov": "jest  --roots \"<rootDir>/src\" --coverage",
+    "test:e2e": "jest  --roots \"<rootDir>/test/e2e\"",
+    "clean": "rimraf dist coverage",
+    "clear-cache": "rimraf .turbo node_modules/.cache"
   },
   "dependencies": {
     "@nestjs/common": "^10.2.9",
