@@ -1,10 +1,11 @@
 'use client';
 
-import {memo, useCallback, useTransition} from 'react';
+import {memo, useCallback} from 'react';
 import TrashIcon from '@heroicons/react/24/solid/TrashIcon';
 import {Button} from '@tremor/react';
 import {FormSubmitActionResponse} from '../../pages/Note/FormSubmitActionResponse';
 import {submitFormAction} from '../../pages/Note/submitFormAction';
+import useBoolean from '@/hooks/useBoolean';
 
 export interface DeleteNoteButtonProps {
   noteId: number;
@@ -12,25 +13,29 @@ export interface DeleteNoteButtonProps {
 
 function DeleteNoteButton(props: DeleteNoteButtonProps) {
   const {noteId} = props;
-  const [isPending, startTransition] = useTransition();
+  const [isActionPending, {setTrue: setActionAsPending}] = useBoolean(false);
 
   const handleClick = useCallback(async () => {
     const answer: boolean = window.confirm('Are you sure about that?');
+
     if (answer) {
-      startTransition(async () => {
-        const response: FormSubmitActionResponse = await submitFormAction(noteId);
+      // Define action pending status
+      setActionAsPending();
 
-        // If response is undefined it means that server action run succesfully and we are awaiting redirection
-        if (response === undefined) return;
+      // Submit server action
+      const response: FormSubmitActionResponse = await submitFormAction(noteId);
 
-        // Otherwise we have to check server action response to detect possible errors
-        if (response.state === 'error') {
-          // Silently fail
-          console.error(new Error('Server-side form submission error.'));
-        }
-      });
+      // If response is undefined it means that server action run succesfully and we are awaiting redirection
+      if (response === undefined) return;
+
+      // Otherwise we have to check server action response to detect possible errors
+      if (response.state === 'error') {
+        // Silently fail
+        console.error(new Error('Server-side form submission error.'));
+      }
+
     }
-  }, [noteId]);
+  }, [noteId, setActionAsPending]);
 
   return (
     <Button
@@ -40,7 +45,7 @@ function DeleteNoteButton(props: DeleteNoteButtonProps) {
       color={'rose'}
       size={'xs'}
       onClick={handleClick}
-      loading={isPending}>
+      loading={isActionPending}>
       Delete
     </Button>
   );
