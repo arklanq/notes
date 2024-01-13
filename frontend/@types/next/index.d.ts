@@ -1,6 +1,6 @@
-import "next";
+import 'next';
 
-declare module "next" {
+declare module 'next' {
   export interface DefaultSearchParams {
     [key: string]: string | string[] | undefined;
   }
@@ -10,11 +10,11 @@ declare module "next" {
     S extends object = object,
   > = (P extends undefined
     ? {
-        params?: P;
-      }
+      params?: P;
+    }
     : {
-        params: P;
-      }) & {
+      params: P;
+    }) & {
     searchParams?: DefaultSearchParams & S;
   };
 }

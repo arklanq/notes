@@ -1,5 +1,5 @@
-import { AppRouterInstance as discoverType_AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import 'next/navigation';
 
-declare module "next/navigation" {
-  export type AppRouterInstance = discoverType_AppRouterInstance;
+declare module 'next/navigation' {
+  export type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 }
