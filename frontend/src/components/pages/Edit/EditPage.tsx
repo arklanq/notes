@@ -1,7 +1,6 @@
 'use server';
 import styles from './EditPage.module.scss';
 import {Container} from '../../atoms/Container/Container';
-import EditNoteForm from '../../organisms/EditNoteForm/EditNoteForm';
 import {notFound} from 'next/navigation';
 import {Note} from '@/models/Note';
 import {getNote} from '@/lib/getNote';
@@ -23,7 +22,7 @@ async function EditPage(props: PageProps<{id: string}>) {
 
   return (
     <Container as={'section'} maxWidth={'SM'} className={styles.section}>
-      <EditNoteForm note={note} />
+      {/*<EditNoteForm note={note} />*/}
     </Container>
   );
 }

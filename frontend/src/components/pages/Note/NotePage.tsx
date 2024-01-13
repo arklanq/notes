@@ -5,7 +5,6 @@ import {Note} from '@/models/Note';
 import {getNote} from '../../../lib/getNote';
 import {notFound} from 'next/navigation';
 import {NoteNotFoundException} from '../../../exceptions/NoteNotFoundException';
-import NoteView from '../../organisms/NoteView/NoteView';
 import { PageProps } from 'next';
 
 async function NotePage(props: PageProps<{id: string}>) {
@@ -23,7 +22,7 @@ async function NotePage(props: PageProps<{id: string}>) {
 
   return (
     <Container as={'section'} maxWidth={'MD'} className={styles.section}>
-      <NoteView note={note} />
+      {/*<NoteView note={note} />*/}
     </Container>
   );
 }

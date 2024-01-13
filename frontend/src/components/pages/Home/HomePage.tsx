@@ -1,6 +1,5 @@
 'use server';
 import styles from './HomePage.module.scss';
-import NoteCard from '../../molecules/NoteCard/NoteCard';
 import {Container} from '../../atoms/Container/Container';
 import {getAllNotes} from '@/lib/getAllNotes';
 import {Note} from '@/models/Note';
@@ -11,7 +10,7 @@ async function HomePage(_props: PageProps) {
 
   return (
     <Container as={'section'} className={styles.section} data-testid={'section'}>
-      {notes.map((note: Note) => (
+      {/*{notes.map((note: Note) => (
         <NoteCard
           testID={'NoteCard'}
           key={note.id}
@@ -20,7 +19,7 @@ async function HomePage(_props: PageProps) {
           content={note.content}
           lastUpdateDate={note.lastUpdateDate}
         />
-      ))}
+      ))}*/}
     </Container>
   );
 }
