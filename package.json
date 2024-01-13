@@ -19,7 +19,11 @@
     "backend",
     "frontend"
   ],
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "yarn@4.0.2",
   "dependencies": {
-    "turbo": "^1.10.16"
+    "turbo": "^1.11.3"
   }
 }
