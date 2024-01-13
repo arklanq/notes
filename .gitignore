@@ -6,11 +6,13 @@
 .vscode
 
 # Environment
-/node_modules
-*/node_modules
+/**/node_modules
 
 # Tools
-npm-debug.log*
-
-# Monorepo
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 .turbo
