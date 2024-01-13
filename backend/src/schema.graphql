@@ -1,0 +1,30 @@
+scalar Date
+
+type Note {
+    id: Int!
+    title: String
+    content: String
+    createDate: Date
+    lastUpdateDate: Date
+}
+
+input CreateNoteDTO {
+    title: String
+    content: String
+}
+
+input UpdateNoteDTO {
+    title: String
+    content: String
+}
+
+type Query {
+    notes: [Note!]!
+    note(id: Int!): Note
+}
+
+type Mutation {
+    createNote(dto: CreateNoteDTO!): Note!
+    updateNote(id: Int!, dto: UpdateNoteDTO!): Note!
+    deleteNote(id: Int!): Note!
+}
