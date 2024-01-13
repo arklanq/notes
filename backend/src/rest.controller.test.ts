@@ -1,17 +1,17 @@
 import {Test, TestingModule} from '@nestjs/testing';
-import {NotesController} from './notes.controller';
+import {RestController} from './rest.controller';
 import {DatabaseService} from './database.service';
 
-describe('NotesController', () => {
-  let appController: NotesController;
+describe('RestController', () => {
+  let appController: RestController;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
-      controllers: [NotesController],
+      controllers: [RestController],
       providers: [DatabaseService]
     }).compile();
 
-    appController = app.get<NotesController>(NotesController);
+    appController = app.get<RestController>(RestController);
   });
 
   describe('getNotes()', () => {

@@ -4,8 +4,8 @@ import {Note, CreateNoteDTO, createNoteSchema, updateNoteSchema, UpdateNoteDTO} 
 import {ZodValidationPipe} from './pipes/ZodValidationPipe';
 import {NoteNotFoundException} from './exceptions/NoteNotFoundException';
 
-@Controller('/notes')
-export class NotesController {
+@Controller('/api/rest/notes')
+export class RestController {
   constructor(private readonly databaseService: DatabaseService) {}
 
   @Get()
