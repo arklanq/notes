@@ -8,7 +8,7 @@ import {NoteNotFoundException} from '../exceptions/NoteNotFoundException';
  * @throws {@link NoteNotFoundException} when note with specified noteId wasn't found
  */
 export async function deleteNote(noteId: number): Promise<Note> {
-  const response: Response = await fetch(new URL(`/notes/${noteId}`, baseUrl), {
+  const response: Response = await fetch(new URL(`/api/rest/notes/${noteId}`, baseUrl), {
     cache: 'no-store',
     method: 'DELETE',
     headers: {

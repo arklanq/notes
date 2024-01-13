@@ -10,7 +10,7 @@ import {ResourceFetchException} from '../exceptions/ResourceFetchException';
 export async function getNote(noteId: number): Promise<Note> {
   let response: Response;
 
-  response = await fetch(new URL(`/notes/${noteId}`, baseUrl), {
+  response = await fetch(new URL(`/api/rest/notes/${noteId}`, baseUrl), {
     cache: 'no-store',
     method: 'GET',
     headers: {

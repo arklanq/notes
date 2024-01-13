@@ -6,7 +6,7 @@ import {ResourceFetchException} from '../exceptions/ResourceFetchException';
  * @throws {@link ResourceFetchException} on any unknown error
  */
 export async function createNote(dto: CreateNoteDTO): Promise<Note> {
-  const response: Response = await fetch(new URL('/notes', baseUrl), {
+  const response: Response = await fetch(new URL('/api/rest/notes', baseUrl), {
     cache: 'no-store',
     method: 'POST',
     body: JSON.stringify(dto),
