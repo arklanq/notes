@@ -22,8 +22,9 @@
   "engines": {
     "node": ">=20"
   },
-  "packageManager": "yarn@4.0.2",
+  "packageManager": "yarn@4.1.1",
   "dependencies": {
-    "turbo": "^1.11.3"
+    "npm-check-updates": "^16.14.18",
+    "turbo": "^1.13.2"
   }
 }
